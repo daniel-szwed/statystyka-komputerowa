@@ -1,0 +1,18 @@
+FROM nginx:latest as base
+WORKDIR /usr/share/nginx/html/
+EXPOSE 80
+
+FROM node:alpine3.16 as install
+WORKDIR /src
+COPY [".", "."]
+RUN npm install --legacy-peer-deps
+RUN npm install -g @angular/cli@latest
+
+FROM install as build
+RUN ng build
+
+FROM base as final
+WORKDIR /usr/share/nginx/html/
+COPY --from=build /src/nginx.conf /etc/nginx/conf.d/default.conf
+# COPY --from=build /src/dist/bga2dxf/assets /usr/share/nginx/html/assets
+COPY --from=build /src/dist/bga2dxf/* /usr/share/nginx/html/

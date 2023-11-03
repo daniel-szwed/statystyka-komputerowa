@@ -1,0 +1,71 @@
+<h3 style="font-family: Consolas">Please upload your data using button bellow</h3>
+<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button> -->
+<mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+    <!-- <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Fill out chip name</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Chip Name</mat-label>
+          <input matInput placeholder="Ex. ATI 216-0774009" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="primary" matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step> -->
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Select excel file</ng-template>
+  
+        <!-- <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Dot per inch</mat-label>
+            <mat-select formControlName="secondCtrl" (selectionChange)="onDpiSelected($event.value)">
+              <mat-option *ngFor="let item of items" [value]="item.value">
+                {{item.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div> -->
+  
+        <input #fileInput hidden="true" type="file" onclick="this.value=null" (change)="fileInputChange($event)" accept=".xlsx"/>
+  
+        <div>
+          <mat-form-field apperance="fill">
+            <mat-label>File</mat-label>
+            <input matInput formControlName="thirdCtrl" placeholder="Ex. my-chip-scan-001.png" (click)="fileInput.click()" readonly required>
+            <span matSuffix style="position: relative; right: 0px;">
+              <button mat-icon-button  color="primary" (click)="fileInput.click()">
+                <mat-icon>upload</mat-icon>
+              </button>
+            </span>
+          </mat-form-field>
+        </div>
+        <div>
+          <button mat-raised-button matStepperPrevious>Back</button>
+          <button mat-raised-button color="primary" matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <p>Press Start button to begin upload.</p>
+      <p>Your data will be ready for few seconds.</p>
+      <div>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button (click)="stepper.reset()">Reset</button>
+        <button 
+          mat-raised-button 
+          color="primary" 
+          (click)="start()">
+          <div class="button-spinner">
+            <mat-spinner color="accent" [diameter]="20" *ngIf="spin"></mat-spinner>
+            {{spin? 'Processing' : 'Start'}}
+          </div>
+        </button>
+      </div>
+    </mat-step>
+  </mat-stepper>

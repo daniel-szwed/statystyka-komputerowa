@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  frontend:
+     image: statistica-client
+     ports:
+         - 3336:80
+     build:
+       context: frontend
+       dockerfile: dockerfile
+
+  backend:
+    image: statistica-api
+    restart: always
+    build:
+      context: rest-api
+      dockerfile: ./Dockerfile
+    ports:
+      - 3335:5000
+    volumes:
+      - /d/statistica:/usr/share/statistica
