@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SvgDisplayComponent } from './svg-display.component';
+import { LegendComponent } from './legend.component';
 
-describe('SvgDisplayComponent', () => {
-  let component: SvgDisplayComponent;
-  let fixture: ComponentFixture<SvgDisplayComponent>;
+describe('LegendComponent', () => {
+  let component: LegendComponent;
+  let fixture: ComponentFixture<LegendComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SvgDisplayComponent ]
+      declarations: [ LegendComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SvgDisplayComponent);
+    fixture = TestBed.createComponent(LegendComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

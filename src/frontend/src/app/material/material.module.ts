@@ -39,7 +39,7 @@ const modules = [
   MatToolbarModule,
   MatTableModule,
   MatPaginatorModule,
-  MatSortModule
+  MatSortModule,
 ];
 
 @NgModule({

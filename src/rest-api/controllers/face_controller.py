@@ -63,13 +63,13 @@ def draw_face():
 
     pyplot.switch_backend('Agg') 
 
-    figure = mpl.figure.Figure(figsize=(2, 2), facecolor='None')
+    figure = mpl.figure.Figure(figsize=(1, 1), facecolor='None')
 
     # Make Chernoff faces
     fig = chernoff_face(data=data, 
                         # titles=[str(x) for x in list(range(len(data)))], 
                         color_mapper=cm.Pastel1,
-                        figsize=(2, 2),
+                        figsize=(1, 1),
                         figure=figure
                         )
 

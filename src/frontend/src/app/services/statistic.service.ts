@@ -12,6 +12,8 @@ export interface SimpleStatistic {
   min: number,
   max: number,
   sum: number,
+  q1: number,
+  q3: number
 }
 
 @Injectable({
@@ -31,7 +33,9 @@ export class StatisticService {
       variance: ss.variance(data),
       min: ss.min(data),
       max: ss.max(data),
-      sum: ss.sum(data)
+      sum: ss.sum(data),
+      q1: ss.quantile(data, 0.25),
+      q3: ss.quantile(data, 0.75)
     }
     
     return simpleStatistic;

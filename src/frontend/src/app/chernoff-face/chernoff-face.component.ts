@@ -3,9 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-svg-display',
-  templateUrl: './svg-display.component.html',
-  styleUrls: ['./svg-display.component.css']
+  selector: 'app-chernoff-face',
+  templateUrl: './chernoff-face.component.html',
+  styleUrls: ['./chernoff-face.component.css']
 })
 export class SvgDisplayComponent implements OnInit {
   sanitizedSvgData!: SafeHtml;

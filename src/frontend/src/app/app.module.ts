@@ -9,8 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { ResultComponent } from './result/result.component';
-import { SvgDisplayComponent } from './svg-display/svg-display.component';
-import { RoundToOneDecimalPipe } from './round-to-one-decimal.pipe';
+import { SvgDisplayComponent } from './chernoff-face/chernoff-face.component';
+import { RoundToOneDecimalPipe } from './pipes/round-to-one-decimal.pipe';
+import { LegendComponent } from './legend/legend.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RoundToOneDecimalPipe } from './round-to-one-decimal.pipe';
     SvgDisplayComponent,
     ResultComponent,
     HomeComponent,
-    RoundToOneDecimalPipe
+    RoundToOneDecimalPipe,
+    LegendComponent
   ],
   imports: [
     BrowserModule,

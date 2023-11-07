@@ -14,6 +14,8 @@ interface Stats {
   min: number;
   max: number;
   sum: number;
+  q1: number;
+  q3: number;
 }
 
 @Component({
@@ -27,13 +29,15 @@ export class ResultComponent implements OnInit{
     'name', 
     'mean', 
     'geometricMean', 
+    'q1',
     'median', 
+    'q3',
     'mode', 
     'standardDeviation', 
-    'variance', 
     'min',
     'max',
-    'sum'];
+    'sum',
+    'face'];
   dataSource: MatTableDataSource<Stats>;
 
   constructor(
