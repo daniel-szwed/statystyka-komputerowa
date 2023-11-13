@@ -1,1 +1,1 @@
-# bga2dxf
+# Statystyka w informatyce
